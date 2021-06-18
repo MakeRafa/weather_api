@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+{% block content %}
+<section class="form">
+    <form action="/results">
+        <fieldset>
+            <legend>
+                Enter the location you would like to check the weather for!</legend>
+            <p>
+                <label>
+                    Enter the city name!
+                    <input type="text" name="city">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Enter your current mood! <br>
+                    <input type="text" name='mood'>
+                </label>
+            </p>
+
+            <p>
+                <input type="submit" value="Submit">
+            </p>
+        </fieldset>
+    </form>
+</section>
+{% endblock content %}
