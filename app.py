@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, request
 from dotenv import load_dotenv
 
 import requests
@@ -31,16 +31,16 @@ def current_weather():
     params = {
         'appid': API_KEY,
 
-        'q': city
+        'c': city
     }
 
     result_json = requests.get(API_URL, params=params).json()
     print.pprint(result_json)
 
     context = {
-        'mood': mood,
+        'description': result_json['weather'][0]['description'],
         'city': city,
-        'description': result_json['weather'][0]['main']
+        'mood': mood
     }
     return render_template('results.html', **context)
 
