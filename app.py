@@ -31,16 +31,16 @@ def current_weather():
     params = {
         'appid': API_KEY,
 
-        'c': city
+        'q': city
     }
 
     result_json = requests.get(API_URL, params=params).json()
     print.pprint(result_json)
 
     context = {
-        'description': result_json['weather'][0]['description'],
         'city': city,
-        'mood': mood
+        'mood': mood,
+        'description': result_json['weather'][0]['main']
     }
     return render_template('results.html', **context)
 
